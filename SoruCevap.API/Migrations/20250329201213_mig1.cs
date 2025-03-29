@@ -70,22 +70,22 @@ namespace SoruCevap.API.Migrations
                     VideoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    QuestionIdId = table.Column<int>(type: "int", nullable: true)
+                    QuestionId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Answers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Answers_Questions_QuestionIdId",
-                        column: x => x.QuestionIdId,
+                        name: "FK_Answers_Questions_QuestionId",
+                        column: x => x.QuestionId,
                         principalTable: "Questions",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Answers_QuestionIdId",
+                name: "IX_Answers_QuestionId",
                 table: "Answers",
-                column: "QuestionIdId");
+                column: "QuestionId");
         }
 
         /// <inheritdoc />

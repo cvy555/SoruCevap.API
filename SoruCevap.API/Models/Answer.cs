@@ -13,6 +13,7 @@
 
         public DateTime UpdatedTime { get; set; }
 
-        public Question QuestionId { get; set; }
+        public Question Question { get; set; }
     }
+
 }

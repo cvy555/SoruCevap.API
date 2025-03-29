@@ -39,7 +39,7 @@ namespace SoruCevap.API.Migrations
                     b.Property<string>("PhotoUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("QuestionIdId")
+                    b.Property<int?>("QuestionId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedTime")
@@ -53,7 +53,7 @@ namespace SoruCevap.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("QuestionIdId");
+                    b.HasIndex("QuestionId");
 
                     b.ToTable("Answers");
                 });
@@ -132,11 +132,11 @@ namespace SoruCevap.API.Migrations
 
             modelBuilder.Entity("SoruCevap.API.Models.Answer", b =>
                 {
-                    b.HasOne("SoruCevap.API.Models.Question", "QuestionId")
+                    b.HasOne("SoruCevap.API.Models.Question", "Question")
                         .WithMany()
-                        .HasForeignKey("QuestionIdId");
+                        .HasForeignKey("QuestionId");
 
-                    b.Navigation("QuestionId");
+                    b.Navigation("Question");
                 });
 #pragma warning restore 612, 618
         }
